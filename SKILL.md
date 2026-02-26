@@ -1,4 +1,14 @@
---- name: jackal-memory description: "Sovereign, recoverable memory for OpenClaw agents backed by Jackal decentralized storage." user-invocable: true metadata: { "openclaw": { "emoji": "🧠", "requires": { "env": ["JACKAL_MEMORY_API_KEY"] }, "homepage": "https://web-production-5cce7.up.railway.app" } } ---
+---
+name: jackal-memory
+description: "Sovereign, recoverable memory for OpenClaw agents backed by Jackal decentralized storage."
+user-invocable: true
+metadata:
+  openclaw:
+    emoji: "🧠"
+    requires:
+      env: ["JACKAL_MEMORY_API_KEY"]
+    homepage: "https://web-production-5cce7.up.railway.app"
+---
 
 # Jackal Memory
 
