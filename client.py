@@ -110,7 +110,9 @@ def cmd_save(key: str, content: str) -> None:
         json={"key": key, "content": payload},
         headers=_headers(),
     )
-    resp.raise_for_status()
+    if not resp.ok:
+        print(f"Error {resp.status_code}: {resp.text}", file=sys.stderr)
+        resp.raise_for_status()
     data = resp.json()
     used_mb  = data.get("bytes_used", 0) / 1024 ** 2
     quota_mb = data.get("quota_bytes", 0) / 1024 ** 2
@@ -128,7 +130,9 @@ def cmd_load(key: str) -> None:
     if resp.status_code == 404:
         print(f"No memory found for key '{key}'", file=sys.stderr)
         sys.exit(1)
-    resp.raise_for_status()
+    if not resp.ok:
+        print(f"Error {resp.status_code}: {resp.text}", file=sys.stderr)
+        resp.raise_for_status()
     print(_decrypt(resp.json()["content"]))
 
 
