@@ -18,7 +18,12 @@ Persist your memory across sessions and machines. Your data lives on Jackal Prot
 
 1. Get an API key: https://web-production-5cce7.up.railway.app/auth/login
 2. Set environment variable: `JACKAL_MEMORY_API_KEY=<your-key>`
-3. First run only — provision your storage (requires a Jackal address):
+3. Generate an encryption key (recommended):
+   ```
+   python {baseDir}/client.py keygen
+   ```
+   Set `JACKAL_MEMORY_ENCRYPTION_KEY=<generated-key>` — all content will be encrypted before leaving your machine.
+4. First run only — provision your storage (requires a Jackal address):
    ```
    python {baseDir}/client.py provision <your-jkl-address>
    ```
